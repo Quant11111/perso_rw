@@ -9293,6 +9293,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"clsx@npm:^1.1.0":
+  version: 1.2.1
+  resolution: "clsx@npm:1.2.1"
+  checksum: 10c0/34dead8bee24f5e96f6e7937d711978380647e936a22e76380290e35486afd8634966ce300fc4b74a32f3762c7d4c0303f442c3e259f4ce02374eb0c82834f27
+  languageName: node
+  linkType: hard
+
 "clsx@npm:^2.1.0":
   version: 2.1.1
   resolution: "clsx@npm:2.1.1"
@@ -12788,7 +12795,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"goober@npm:^2.1.10":
+"goober@npm:^2.0.33, goober@npm:^2.1.10":
   version: 2.1.14
   resolution: "goober@npm:2.1.14"
   peerDependencies:
@@ -16505,6 +16512,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"notistack@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "notistack@npm:3.0.1"
+  dependencies:
+    clsx: "npm:^1.1.0"
+    goober: "npm:^2.0.33"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 10c0/dd5bd492dbaf8d07a1f45a53ae195c5d481bc7136d73a756eb076534d315216a3cd2f4628263be55ad21d8bfed6ec546e5063584ffcc2798fb2aac56e5ccf0cf
+  languageName: node
+  linkType: hard
+
 "npm-run-path@npm:^4.0.1":
   version: 4.0.1
   resolution: "npm-run-path@npm:4.0.1"
@@ -18861,6 +18881,7 @@ __metadata:
     "@redwoodjs/auth-dbauth-setup": "npm:7.6.3"
     "@redwoodjs/core": "npm:7.6.3"
     "@redwoodjs/project-config": "npm:7.6.3"
+    notistack: "npm:^3.0.1"
   languageName: unknown
   linkType: soft
 
@@ -21357,6 +21378,7 @@ __metadata:
     "@simplewebauthn/browser": "npm:^7"
     "@types/react": "npm:^18.2.55"
     "@types/react-dom": "npm:^18.2.19"
+    humanize-string: "npm:2.1.0"
     react: "npm:18.2.0"
     react-dom: "npm:18.2.0"
   languageName: unknown

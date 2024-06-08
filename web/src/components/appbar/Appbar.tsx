@@ -1,14 +1,15 @@
 import React from 'react'
 
-import { Box, Button } from '@mui/material'
+import { Box } from '@mui/material'
 
-import { Link, routes } from '@redwoodjs/router'
+import { navigate, routes } from '@redwoodjs/router'
+
+import { useAuth } from 'src/auth'
+
+import AppbarButton from './AppbarButton'
 
 const Appbar: React.FC = () => {
-  const handleAlert = () => {
-    alert('Hello world!')
-  }
-
+  const { isAuthenticated, currentUser, logOut } = useAuth()
   return (
     <Box
       className="appbar"
@@ -16,16 +17,44 @@ const Appbar: React.FC = () => {
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
+        width: '100%',
         height: '64px',
-        background: 'darkBlue',
+        background: 'white',
       }}
     >
-      <Link to={routes.home()}>Accueil</Link>
-      <Link to={routes.home()}>À propos</Link>
-      <Link to={routes.home()}>Contact</Link>
-      <Button variant="contained" onClick={handleAlert} color="primary">
-        alert
-      </Button>
+      {!isAuthenticated && (
+        <>
+          <AppbarButton
+            label="Login"
+            onClick={() => navigate(routes.login())}
+          />
+
+          <AppbarButton
+            label="Signup"
+            onClick={() => navigate(routes.signup())}
+          />
+        </>
+      )}
+      {isAuthenticated && (
+        <AppbarButton
+          label="Profile"
+          onClick={() => navigate(routes.profile())}
+        />
+      )}
+      {currentUser?.role === 'ADMIN' && (
+        <AppbarButton label="Admin" onClick={() => navigate(routes.admin())} />
+      )}
+      <AppbarButton label="SaaSmile" onClick={() => navigate(routes.home())} />
+
+      <AppbarButton label="TechStack" onClick={() => navigate(routes.home())} />
+
+      <AppbarButton
+        label="Contact us"
+        onClick={() => navigate(routes.home())}
+      />
+      {isAuthenticated && (
+        <AppbarButton label="Logout" onClick={() => logOut()} />
+      )}
     </Box>
   )
 }

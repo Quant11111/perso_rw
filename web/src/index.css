@@ -1,0 +1,14 @@
+@keyframes waveAnimation {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+body {
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(30,144,255,1) 50%, rgba(255,255,255,1) 100%);
+  background-size: 200% 200%;
+  animation: waveAnimation 5s ease-in-out infinite alternate;
+}

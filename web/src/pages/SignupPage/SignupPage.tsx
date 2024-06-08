@@ -1,6 +1,9 @@
 import { useRef } from 'react'
 import { useEffect } from 'react'
 
+import { Box } from '@mui/material'
+import { VariantType, useSnackbar } from 'notistack'
+
 import {
   Form,
   Label,
@@ -11,7 +14,6 @@ import {
 } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
-import { toast, Toaster } from '@redwoodjs/web/toast'
 
 import { useAuth } from 'src/auth'
 
@@ -30,28 +32,39 @@ const SignupPage = () => {
     usernameRef.current?.focus()
   }, [])
 
+  const { enqueueSnackbar } = useSnackbar()
+
   const onSubmit = async (data: Record<string, string>) => {
+    if (data.password !== data.passwordConfirmation) {
+      enqueueSnackbar('passwords do not match', {
+        variant: 'error' as VariantType,
+      })
+      return
+    }
     const response = await signUp({
       username: data.username,
       password: data.password,
     })
 
     if (response.message) {
-      toast(response.message)
+      enqueueSnackbar(response.message, {
+        variant: 'info' as VariantType,
+      })
     } else if (response.error) {
-      toast.error(response.error)
+      enqueueSnackbar(response.error, {
+        variant: 'error' as VariantType,
+      })
     } else {
-      // user is signed in automatically
-      toast.success('Welcome!')
+      enqueueSnackbar('Account Created', {
+        variant: 'success' as VariantType,
+      })
     }
   }
 
   return (
-    <>
+    <Box>
       <Metadata title="Signup" />
-
       <main className="rw-main">
-        <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="rw-segment-header">
@@ -103,6 +116,26 @@ const SignupPage = () => {
                   />
                   <FieldError name="password" className="rw-field-error" />
 
+                  <Label
+                    name="passwordConfirmation"
+                    className="rw-label"
+                    errorClassName="rw-label rw-label-error"
+                  >
+                    Password Confirmation
+                  </Label>
+                  <PasswordField
+                    name="passwordConfirmation"
+                    className="rw-input"
+                    errorClassName="rw-input rw-input-error"
+                    autoComplete="current-password"
+                    validation={{
+                      required: {
+                        value: true,
+                        message: 'Password confirmation is required',
+                      },
+                    }}
+                  />
+
                   <div className="rw-button-group">
                     <Submit className="rw-button rw-button-blue">
                       Sign Up
@@ -120,7 +153,7 @@ const SignupPage = () => {
           </div>
         </div>
       </main>
-    </>
+    </Box>
   )
 }
 

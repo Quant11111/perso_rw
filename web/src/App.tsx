@@ -1,4 +1,5 @@
 import { CssBaseline } from '@mui/material'
+import { SnackbarProvider } from 'notistack'
 
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
@@ -14,12 +15,14 @@ import './index.css'
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
-      <AuthProvider>
-        <RedwoodApolloProvider useAuth={useAuth}>
-          <CssBaseline />
-          <Routes />
-        </RedwoodApolloProvider>
-      </AuthProvider>
+      <SnackbarProvider maxSnack={3}>
+        <AuthProvider>
+          <RedwoodApolloProvider useAuth={useAuth}>
+            <CssBaseline />
+            <Routes />
+          </RedwoodApolloProvider>
+        </AuthProvider>
+      </SnackbarProvider>
     </RedwoodProvider>
   </FatalErrorBoundary>
 )
