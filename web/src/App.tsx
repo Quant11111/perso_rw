@@ -1,3 +1,5 @@
+import { CssBaseline } from '@mui/material'
+
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
 import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 
@@ -14,6 +16,7 @@ const App = () => (
     <RedwoodProvider titleTemplate="%PageTitle | %AppTitle">
       <AuthProvider>
         <RedwoodApolloProvider useAuth={useAuth}>
+          <CssBaseline />
           <Routes />
         </RedwoodApolloProvider>
       </AuthProvider>

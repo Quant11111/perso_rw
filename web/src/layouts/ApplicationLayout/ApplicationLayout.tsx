@@ -1,5 +1,7 @@
 import { Box, Stack } from '@mui/material'
 
+import Appbar from 'src/components/appbar/Appbar'
+
 type ApplicationLayoutProps = {
   children?: React.ReactNode
 }
@@ -7,26 +9,28 @@ type ApplicationLayoutProps = {
 const ApplicationLayout = ({ children }: ApplicationLayoutProps) => {
   return (
     <Stack sx={{ boxSizing: 'border-box' }}>
+      <Appbar />
       <Box
         sx={{
           position: 'relative',
           height: 'calc(100vh - 64px)', // 64px is the height of the AppBar
           width: '100%',
-          background:
-            'linear-gradient(90deg, skyblue 25%, white 50%, skyblue 75%)',
-          backgroundSize: '200% 100%',
-          animation: 'wave 10s infinite linear',
-          '@keyframes wave': {
-            '0%': {
-              backgroundPosition: '200% 0',
-            },
-            '100%': {
-              backgroundPosition: '-200% 0',
-            },
-          },
+          background: 'black',
         }}
       >
-        {children}
+        <Box
+          my={2}
+          mx={2}
+          sx={{
+            width: 'fill-available',
+            height: '100ù',
+            background: 'white',
+            borderRadius: 1,
+            boxShadow: 3,
+          }}
+        >
+          {children}
+        </Box>
       </Box>
     </Stack>
   )
