@@ -1,7 +1,8 @@
 import { useRef } from 'react'
 import { useEffect } from 'react'
 
-import { Box } from '@mui/material'
+import HelpIcon from '@mui/icons-material/Help'
+import { Box, Tooltip } from '@mui/material'
 import { VariantType, useSnackbar } from 'notistack'
 
 import {
@@ -68,9 +69,18 @@ const SignupPage = () => {
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="rw-segment-header">
-              <h2 className="rw-heading rw-heading-secondary">Signup</h2>
+              <Tooltip
+                placement="bottom-end"
+                title="We do not ask for any personnal information such as your email or
+              real name, and the password you shose is hashed before being
+              stored in the database."
+              >
+                <Box gap={2} display={'flex'}>
+                  <h2 className="rw-heading rw-heading-secondary">Signup</h2>
+                  <HelpIcon />
+                </Box>
+              </Tooltip>
             </header>
-
             <div className="rw-segment-main">
               <div className="rw-form-wrapper">
                 <Form onSubmit={onSubmit} className="rw-form-wrapper">
@@ -81,6 +91,7 @@ const SignupPage = () => {
                   >
                     Username
                   </Label>
+
                   <TextField
                     name="username"
                     className="rw-input"
