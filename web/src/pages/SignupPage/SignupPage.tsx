@@ -63,10 +63,25 @@ const SignupPage = () => {
   }
 
   return (
-    <Box>
+    <Box
+      className="authPage"
+      borderRadius={1}
+      sx={{
+        display: 'flex',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <Metadata title="Signup" />
       <main className="rw-main">
-        <div className="rw-scaffold rw-login-container">
+        <Box
+          borderRadius={2}
+          sx={{
+            boxShadow: '0 0 30px rgba(0, 0, 0, 0.3)',
+          }}
+          className="rw-scaffold rw-login-container"
+        >
           <div className="rw-segment">
             <header className="rw-segment-header">
               <Tooltip
@@ -156,13 +171,13 @@ const SignupPage = () => {
               </div>
             </div>
           </div>
-          <div className="rw-login-link">
+          <Box mb={2} className="rw-login-link">
             <span>Already have an account?</span>{' '}
             <Link to={routes.login()} className="rw-link">
               Log in!
             </Link>
-          </div>
-        </div>
+          </Box>
+        </Box>
       </main>
     </Box>
   )

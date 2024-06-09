@@ -38,8 +38,9 @@ const Routes = () => {
       <Set wrap={ApplicationLayout}>
         <Route path="/login" page={LoginPage} name="login" />
         <Route path="/" page={HomePage} name="home" />
-        <Route path="/techStack" page={TechStackPage} name="teckStack" />
+        <Route path="/techStack" page={TechStackPage} name="techStack" />
         <Route path="/signup" page={SignupPage} name="signup" />
+        <Route path="/contact" page={ContactPage} name="contact" />
 
         <PrivateSet unauthenticated="login">
           <Route path="/profile" page={ProfilePage} name="profile" />

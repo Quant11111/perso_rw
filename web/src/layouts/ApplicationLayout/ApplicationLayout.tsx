@@ -25,10 +25,11 @@ const ApplicationLayout = ({ children }: ApplicationLayoutProps) => {
         mx={3}
         sx={{
           position: 'relative',
-          height: 'calc(100vh - 64px - 16px)', // Remplacez tailleDeLaAppbar par la hauteur réelle de votre appbar et ajustez 16px selon my={2}
-          background: 'white',
-          borderRadius: 1,
+          width: 'calc(100% - 48px)',
+          height: '100%',
+          borderRadius: 2,
           boxShadow: 3,
+          overflow: 'scroll',
         }}
       >
         {children}

@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import { useEffect } from 'react'
 
+import { Box } from '@mui/material'
+
 import {
   Form,
   Label,
@@ -40,17 +42,32 @@ const LoginPage = () => {
     } else if (response.error) {
       toast.error(response.error)
     } else {
-      navigate(routes.home())
+      navigate(routes.profile())
     }
   }
 
   return (
-    <>
+    <Box
+      className="authPage"
+      borderRadius={1}
+      sx={{
+        display: 'flex',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <Metadata title="Login" />
 
       <main className="rw-main">
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
-        <div className="rw-scaffold rw-login-container">
+        <Box
+          borderRadius={2}
+          sx={{
+            boxShadow: '0 0 30px rgba(0, 0, 0, 0.3)',
+          }}
+          className="rw-scaffold rw-login-container"
+        >
           <div className="rw-segment">
             <header className="rw-segment-header">
               <h2 className="rw-heading rw-heading-secondary">Login</h2>
@@ -119,15 +136,15 @@ const LoginPage = () => {
               </div>
             </div>
           </div>
-          <div className="rw-login-link">
+          <Box mb={2} className="rw-login-link">
             <span>Don&apos;t have an account?</span>{' '}
             <Link to={routes.signup()} className="rw-link">
               Sign up!
             </Link>
-          </div>
-        </div>
+          </Box>
+        </Box>
       </main>
-    </>
+    </Box>
   )
 }
 

@@ -22,38 +22,47 @@ const Appbar: React.FC = () => {
         background: 'white',
       }}
     >
-      {!isAuthenticated && (
-        <>
-          <AppbarButton
-            label="Login"
-            onClick={() => navigate(routes.login())}
-          />
-
-          <AppbarButton
-            label="Signup"
-            onClick={() => navigate(routes.signup())}
-          />
-        </>
-      )}
       {isAuthenticated && (
         <AppbarButton
+          isActive={routes.profile() === location.pathname}
           label="Profile"
           onClick={() => navigate(routes.profile())}
         />
       )}
       {currentUser?.role === 'ADMIN' && (
-        <AppbarButton label="Admin" onClick={() => navigate(routes.admin())} />
+        <AppbarButton
+          isActive={routes.admin() === location.pathname}
+          label="Admin"
+          onClick={() => navigate(routes.admin())}
+        />
       )}
-      <AppbarButton label="SaaSmile" onClick={() => navigate(routes.home())} />
-
-      <AppbarButton label="TechStack" onClick={() => navigate(routes.home())} />
+      <AppbarButton
+        isActive={routes.home() === location.pathname}
+        label="SaaSmile"
+        onClick={() => navigate(routes.home())}
+      />
 
       <AppbarButton
+        isActive={routes.techStack() === location.pathname}
+        label="TechStack"
+        onClick={() => navigate(routes.techStack())}
+      />
+
+      <AppbarButton
+        isActive={routes.contact() === location.pathname}
         label="Contact us"
-        onClick={() => navigate(routes.home())}
+        onClick={() => navigate(routes.contact())}
       />
       {isAuthenticated && (
         <AppbarButton label="Logout" onClick={() => logOut()} />
+      )}
+      {!isAuthenticated && (
+        <AppbarButton
+          isActive={routes.login() === location.pathname}
+          variant="outlined"
+          label="Login"
+          onClick={() => navigate(routes.login())}
+        />
       )}
     </Box>
   )
