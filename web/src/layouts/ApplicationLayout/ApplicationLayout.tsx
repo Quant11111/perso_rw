@@ -30,6 +30,7 @@ const ApplicationLayout = ({ children }: ApplicationLayoutProps) => {
           borderRadius: 2,
           boxShadow: 3,
           overflow: 'scroll',
+          scrollbarWidth: 'none',
         }}
       >
         {children}

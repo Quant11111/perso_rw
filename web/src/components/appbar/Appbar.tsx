@@ -5,6 +5,7 @@ import { Box } from '@mui/material'
 import { navigate, routes } from '@redwoodjs/router'
 
 import { useAuth } from 'src/auth'
+import { themeSaaSmile } from 'src/theme'
 
 import AppbarButton from './AppbarButton'
 
@@ -13,13 +14,17 @@ const Appbar: React.FC = () => {
   return (
     <Box
       className="appbar"
+      mt={3}
+      mx={3}
+      borderRadius={2}
       sx={{
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
-        width: '100%',
+        width: 'fill-available',
         height: '64px',
         background: 'white',
+        boxShadow: themeSaaSmile.shadows.small,
       }}
     >
       {isAuthenticated && (

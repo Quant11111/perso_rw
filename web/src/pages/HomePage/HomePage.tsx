@@ -2,30 +2,34 @@ import { Box, Stack } from '@mui/material'
 
 import { Metadata } from '@redwoodjs/web'
 
-import WhiteHighlightedTypo from 'src/typo/WhiteHighlightedTypo'
+import { themeSaaSmile } from 'src/theme'
 
 import { GreetingMessage } from './homeComponents/GreetingMessage'
+import { Handshake } from './homeComponents/Handshake'
 import HomeAnimation from './homeComponents/HomeAnimation'
+import { HomeCard } from './homeComponents/HomeCard'
 import { ScrollAnimButton } from './homeComponents/ScrollAnimButton'
 
 const HomePage = () => {
+  const handleScroll = () => {
+    console.log('scrolling')
+    document.getElementById('mainStack').scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+    })
+  }
   return (
     <Box
       sx={{
-        background:
-          'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 100%)',
+        background: themeSaaSmile.gradiant.homePage,
       }}
       position={'relative'}
-      overflow={'scoll'}
     >
       <Metadata title="Home" description="Home page" />
       <HomeAnimation />
 
       <Stack
-        sx={{
-          '--scroll-behavior': 'smooth',
-          scrollBehavior: 'smooth',
-        }}
+        id="mainStack"
         pt={20}
         pb={5}
         gap={20}
@@ -36,58 +40,53 @@ const HomePage = () => {
       >
         <Stack>
           <GreetingMessage />
-          <ScrollAnimButton href="#scroll" />
+          <ScrollAnimButton onClick={handleScroll} />
         </Stack>
 
-        <Box
-          mx={5}
-          borderRadius={5}
-          sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          }}
+        <HomeCard
+          video="https://www.youtube.com/embed/iFx-5PGLgb4"
+          title="Close to you"
+          description="We like to keep our
+          client informed about the developement process
+           on a daily basis. We feel as a small company
+           that showing the latest advancements to our
+           client is the best way to ensure the tool creation keeps moving in the right direction. "
+        />
+        <HomeCard
+          revert={true}
+          img="https://i.imgflip.com/qof22.jpg?a477120"
+          title="Close to each others as a team"
+          description="As a small team of trustwothy software engineers, we can avoid
+           the common pitfalls of larger companies. We are able share information easier. The wole crew has a deep endurstanding
+           of the technologies and the solutions we are working on. You can already call us the dream team."
+        />
+        <HomeCard
+          title="Frictionless handover"
+          description="When the project you ordered is up and running, we
+          will make sure that your staff or yourself if the tool is for personal use, will be able to use it and
+          customize it to your needs. We like to have news from our former clients in order to gather feedback, improve our
+          services and make sure some unnotices bugs wont stay unfixed."
         >
-          <WhiteHighlightedTypo variant={'h4'}>
-            You need a specific tool for your business? Increase your
-            productivity with the best SaaS development experience
-          </WhiteHighlightedTypo>
-        </Box>
-        <Box
-          mx={5}
-          borderRadius={5}
+          <Handshake />
+        </HomeCard>
+        <HomeCard
+          revert={true}
+          img="https://i.pinimg.com/originals/cd/59/d6/cd59d626dc86397fe45080e6e9c7027d.gif"
+          title="We might already have what you need"
+          description="Checkout out product page to see if we already have the tool you are looking for. When we create a tool for a client, we always transform
+          it into a SaaS. This way we can offer it to other clients and make it evolve with the feedback we gather. "
+        />
+        <Stack
+          display={'flex'}
+          justifyContent={'center'}
+          textAlign={'center'}
           sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            backgroundColor: themeSaaSmile.palette.blueAppbar,
+            borderRadius: 2,
+            p: 5,
+            boxShadow: themeSaaSmile.shadows.small,
           }}
-        >
-          <WhiteHighlightedTypo variant={'h4'}>
-            You need a specific tool for your business? Increase your
-            productivity with the best SaaS development experience
-          </WhiteHighlightedTypo>
-        </Box>
-        <Box
-          mx={5}
-          borderRadius={'0px'}
-          sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          }}
-        >
-          <WhiteHighlightedTypo variant={'h4'}>
-            You need a specific tool for your business? Increase your
-            productivity with the best SaaS development experience
-          </WhiteHighlightedTypo>
-        </Box>
-        <Box
-          id="scroll"
-          mx={5}
-          borderRadius={5}
-          sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-          }}
-        >
-          <WhiteHighlightedTypo variant={'h4'}>
-            You need a specific tool for your business? Increase your
-            productivity with the best SaaS development experience
-          </WhiteHighlightedTypo>
-        </Box>
+        ></Stack>
       </Stack>
     </Box>
   )

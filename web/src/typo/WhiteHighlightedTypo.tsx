@@ -14,6 +14,7 @@ const WhiteHighlightedTypo = ({
   return (
     <Typography
       sx={{
+        width: '100%',
         color: color || 'white',
         textShadow: '2px 2px 4px #000000',
         textAlign: 'center',
