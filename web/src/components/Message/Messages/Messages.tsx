@@ -55,6 +55,7 @@ const MessagesList = ({ messages }: FindMessages) => {
             <th>Content</th>
             <th>User id</th>
             <th>Type</th>
+            <th>Deleted at</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -67,6 +68,7 @@ const MessagesList = ({ messages }: FindMessages) => {
               <td>{truncate(message.content)}</td>
               <td>{truncate(message.userId)}</td>
               <td>{formatEnum(message.type)}</td>
+              <td>{timeTag(message.deletedAt)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

@@ -20,6 +20,7 @@ export const QUERY: TypedDocumentNode<
       content
       userId
       type
+      deletedAt
     }
   }
 `

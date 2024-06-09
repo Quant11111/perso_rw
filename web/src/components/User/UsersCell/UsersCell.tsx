@@ -20,7 +20,7 @@ export const QUERY: TypedDocumentNode<FindUsers, FindUsersVariables> = gql`
       resetToken
       resetTokenExpiresAt
       webAuthnChallenge
-      role
+      roles
     }
   }
 `

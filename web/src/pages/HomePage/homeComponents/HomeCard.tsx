@@ -3,7 +3,11 @@ import { Box, CardMedia, Stack } from '@mui/material'
 import { themeSaaSmile } from 'src/theme'
 import WhiteHighlightedTypo from 'src/typo/WhiteHighlightedTypo'
 
+import { BlackButtonHomePage } from './BlackButtonHomePage'
+
 interface HomeCardProps {
+  buttonLabel?: string
+  onClick?: () => void
   children?: React.ReactNode
   video?: string
   img?: string
@@ -13,6 +17,8 @@ interface HomeCardProps {
 }
 
 export const HomeCard = ({
+  buttonLabel,
+  onClick,
   children,
   img,
   video,
@@ -39,20 +45,35 @@ export const HomeCard = ({
         ':hover': {
           backgroundColor: themeSaaSmile.palette.white,
           opacity: 1,
+          outline: `6px solid ${themeSaaSmile.palette.blueAppbar}`,
         },
       }}
     >
-      {revert && <HomeCardContent title={title} description={description} />}
+      {revert && (
+        <HomeCardContent
+          label={buttonLabel}
+          title={title}
+          description={description}
+          onClick={onClick}
+        />
+      )}
       {video !== undefined && <HomeCardVideo video={video} />}
       {img !== undefined && <HomeCardImage img={img} />}
       {children !== undefined && <Box sx={{ width: 1, height: 1 }} />}
       {children !== undefined && children}
-      {!revert && <HomeCardContent title={title} description={description} />}
+      {!revert && (
+        <HomeCardContent
+          label={buttonLabel}
+          title={title}
+          description={description}
+          onClick={onClick}
+        />
+      )}
     </Stack>
   )
 }
 
-const HomeCardContent = ({ title, description }) => {
+const HomeCardContent = ({ label, onClick, title, description }) => {
   return (
     <Stack my={5} p={3} alignItems={'center'} borderRadius={2}>
       <WhiteHighlightedTypo color={'black'} variant={'h4'}>
@@ -68,6 +89,13 @@ const HomeCardContent = ({ title, description }) => {
       <WhiteHighlightedTypo color={'black'} variant={'h6'}>
         {description}
       </WhiteHighlightedTypo>
+      {(onClick || label) && (
+        <BlackButtonHomePage
+          onClick={onClick || (() => {})}
+          label={label || ''}
+          variant={'subtitle1'}
+        />
+      )}
     </Stack>
   )
 }

@@ -10,12 +10,13 @@ import { themeSaaSmile } from 'src/theme'
 import AppbarButton from './AppbarButton'
 
 const Appbar: React.FC = () => {
-  const { isAuthenticated, currentUser, logOut } = useAuth()
+  const { isAuthenticated, currentUser } = useAuth()
   return (
     <Box
       className="appbar"
       mt={3}
       mx={3}
+      px={1}
       borderRadius={2}
       sx={{
         display: 'flex',
@@ -23,7 +24,7 @@ const Appbar: React.FC = () => {
         alignItems: 'center',
         width: 'fill-available',
         height: '64px',
-        background: 'white',
+        background: themeSaaSmile.palette.white,
         boxShadow: themeSaaSmile.shadows.small,
       }}
     >
@@ -34,7 +35,7 @@ const Appbar: React.FC = () => {
           onClick={() => navigate(routes.profile())}
         />
       )}
-      {currentUser?.role === 'ADMIN' && (
+      {currentUser?.roles.includes('ADMIN') && (
         <AppbarButton
           isActive={routes.admin() === location.pathname}
           label="Admin"
@@ -58,9 +59,13 @@ const Appbar: React.FC = () => {
         label="Contact us"
         onClick={() => navigate(routes.contact())}
       />
-      {isAuthenticated && (
-        <AppbarButton label="Logout" onClick={() => logOut()} />
-      )}
+
+      <AppbarButton
+        isActive={routes.aboutUs() === location.pathname}
+        label="About us"
+        onClick={() => navigate(routes.aboutUs())}
+      />
+
       {!isAuthenticated && (
         <AppbarButton
           isActive={routes.login() === location.pathname}

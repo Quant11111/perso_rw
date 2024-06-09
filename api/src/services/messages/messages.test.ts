@@ -31,13 +31,13 @@ describe('messages', () => {
   scenario('creates a message', async (scenario: StandardScenario) => {
     const result = await createMessage({
       input: {
-        updatedAt: '2024-06-08T00:00:00.138Z',
+        updatedAt: '2024-06-09T19:55:53.790Z',
         content: 'String',
         userId: scenario.message.two.userId,
       },
     })
 
-    expect(result.updatedAt).toEqual(new Date('2024-06-08T00:00:00.138Z'))
+    expect(result.updatedAt).toEqual(new Date('2024-06-09T19:55:53.790Z'))
     expect(result.content).toEqual('String')
     expect(result.userId).toEqual(scenario.message.two.userId)
   })
@@ -46,10 +46,10 @@ describe('messages', () => {
     const original = (await message({ id: scenario.message.one.id })) as Message
     const result = await updateMessage({
       id: original.id,
-      input: { updatedAt: '2024-06-09T00:00:00.138Z' },
+      input: { updatedAt: '2024-06-10T19:55:53.790Z' },
     })
 
-    expect(result.updatedAt).toEqual(new Date('2024-06-09T00:00:00.138Z'))
+    expect(result.updatedAt).toEqual(new Date('2024-06-10T19:55:53.790Z'))
   })
 
   scenario('deletes a message', async (scenario: StandardScenario) => {

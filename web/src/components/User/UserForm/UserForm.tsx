@@ -8,7 +8,6 @@ import {
   Label,
   TextField,
   DatetimeLocalField,
-  RadioField,
   Submit,
 } from '@redwoodjs/forms'
 
@@ -165,38 +164,22 @@ const UserForm = (props: UserFormProps) => {
         <FieldError name="webAuthnChallenge" className="rw-field-error" />
 
         <Label
-          name="role"
+          name="roles"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Role
+          Roles
         </Label>
 
-        <div className="rw-check-radio-items">
-          <RadioField
-            id="user-role-0"
-            name="role"
-            defaultValue="ADMIN"
-            defaultChecked={props.user?.role?.includes('ADMIN')}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-          />
-          <div>Admin</div>
-        </div>
+        <TextField
+          name="roles"
+          defaultValue={props.user?.roles}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
-        <div className="rw-check-radio-items">
-          <RadioField
-            id="user-role-1"
-            name="role"
-            defaultValue="USER"
-            defaultChecked={props.user?.role?.includes('USER')}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-          />
-          <div>User</div>
-        </div>
-
-        <FieldError name="role" className="rw-field-error" />
+        <FieldError name="roles" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

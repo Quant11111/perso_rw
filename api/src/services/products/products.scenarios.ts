@@ -6,17 +6,17 @@ export const standard = defineScenario<Prisma.ProductCreateArgs>({
     one: {
       data: {
         name: 'String',
-        price: 3836549.7952643014,
-        deliveryDelay: 3112781,
-        updatedAt: '2024-06-08T00:00:13.965Z',
+        price: 79742.49939850297,
+        deliveryDelay: 2386776,
+        updatedAt: '2024-06-09T19:56:13.492Z',
       },
     },
     two: {
       data: {
         name: 'String',
-        price: 7085308.343557018,
-        deliveryDelay: 4143545,
-        updatedAt: '2024-06-08T00:00:13.965Z',
+        price: 6160602.977698477,
+        deliveryDelay: 9516601,
+        updatedAt: '2024-06-09T19:56:13.492Z',
       },
     },
   },

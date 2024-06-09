@@ -8,8 +8,15 @@ import {
   Label,
   TextField,
   RadioField,
+  DatetimeLocalField,
   Submit,
 } from '@redwoodjs/forms'
+
+const formatDatetime = (value) => {
+  if (value) {
+    return value.replace(/:\d{2}\.\d{3}\w/, '')
+  }
+}
 
 type FormMessage = NonNullable<EditMessageById['message']>
 
@@ -104,6 +111,23 @@ const MessageForm = (props: MessageFormProps) => {
         </div>
 
         <FieldError name="type" className="rw-field-error" />
+
+        <Label
+          name="deletedAt"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Deleted at
+        </Label>
+
+        <DatetimeLocalField
+          name="deletedAt"
+          defaultValue={formatDatetime(props.message?.deletedAt)}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+        />
+
+        <FieldError name="deletedAt" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

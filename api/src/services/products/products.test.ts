@@ -32,16 +32,16 @@ describe('products', () => {
     const result = await createProduct({
       input: {
         name: 'String',
-        price: 4633554.757348453,
-        deliveryDelay: 1395463,
-        updatedAt: '2024-06-08T00:00:13.955Z',
+        price: 5205890.934731232,
+        deliveryDelay: 5129135,
+        updatedAt: '2024-06-09T19:56:13.479Z',
       },
     })
 
     expect(result.name).toEqual('String')
-    expect(result.price).toEqual(4633554.757348453)
-    expect(result.deliveryDelay).toEqual(1395463)
-    expect(result.updatedAt).toEqual(new Date('2024-06-08T00:00:13.955Z'))
+    expect(result.price).toEqual(5205890.934731232)
+    expect(result.deliveryDelay).toEqual(5129135)
+    expect(result.updatedAt).toEqual(new Date('2024-06-09T19:56:13.479Z'))
   })
 
   scenario('updates a product', async (scenario: StandardScenario) => {

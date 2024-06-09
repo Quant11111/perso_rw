@@ -77,6 +77,10 @@ const Message = ({ message }: Props) => {
               <th>Type</th>
               <td>{formatEnum(message.type)}</td>
             </tr>
+            <tr>
+              <th>Deleted at</th>
+              <td>{timeTag(message.deletedAt)}</td>
+            </tr>
           </tbody>
         </table>
       </div>

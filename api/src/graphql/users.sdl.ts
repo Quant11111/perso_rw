@@ -8,13 +8,8 @@ export const schema = gql`
     resetToken: String
     resetTokenExpiresAt: DateTime
     webAuthnChallenge: String
-    role: Role!
+    roles: [String]!
     messages: [Message]!
-  }
-
-  enum Role {
-    ADMIN
-    USER
   }
 
   type Query {
@@ -30,7 +25,7 @@ export const schema = gql`
     resetToken: String
     resetTokenExpiresAt: DateTime
     webAuthnChallenge: String
-    role: Role!
+    roles: [String]!
   }
 
   input UpdateUserInput {
@@ -41,7 +36,7 @@ export const schema = gql`
     resetToken: String
     resetTokenExpiresAt: DateTime
     webAuthnChallenge: String
-    role: Role
+    roles: [String]!
   }
 
   type Mutation {

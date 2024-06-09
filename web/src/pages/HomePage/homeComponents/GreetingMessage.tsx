@@ -1,9 +1,18 @@
 import { Box, Stack } from '@mui/material'
 
+import { navigate, routes } from '@redwoodjs/router'
+
+import { useAuth } from 'src/auth'
 import { themeSaaSmile } from 'src/theme'
 import WhiteHighlightedTypo from 'src/typo/WhiteHighlightedTypo'
 
+import { BlackButtonHomePage } from './BlackButtonHomePage'
+
 export const GreetingMessage = () => {
+  const { isAuthenticated } = useAuth()
+  const onClick = () => {
+    isAuthenticated ? navigate(routes.profile()) : navigate(routes.login())
+  }
   return (
     <Stack gap={5}>
       <Stack gap={2}>
@@ -33,28 +42,12 @@ export const GreetingMessage = () => {
           The best place to find your next SaaS
         </WhiteHighlightedTypo>
       </Stack>
-      <Stack alignItems={'center'}>
-        <Box
-          mx={5}
-          py={2}
-          px={22}
-          borderRadius={4}
-          sx={{
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            zIndex: 1,
-            border: '1px solid transparent',
-            transition: 'all 0.5s',
-            ':hover': {
-              backgroundColor: 'black !important',
-              border: '1px solid white',
-            },
-          }}
-        >
-          <WhiteHighlightedTypo variant={'h4'}>
-            Describe to our team the specific tool you are looking for !
-          </WhiteHighlightedTypo>
-        </Box>
-      </Stack>
+
+      <BlackButtonHomePage
+        variant={'h4'}
+        label="Describe to our team the specific tool you are looking for !"
+        onClick={onClick}
+      />
     </Stack>
   )
 }

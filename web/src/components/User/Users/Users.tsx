@@ -10,7 +10,7 @@ import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
 import { QUERY } from 'src/components/User/UsersCell'
-import { formatEnum, timeTag, truncate } from 'src/lib/formatters'
+import { timeTag, truncate } from 'src/lib/formatters'
 
 const DELETE_USER_MUTATION: TypedDocumentNode<
   DeleteUserMutation,
@@ -57,7 +57,7 @@ const UsersList = ({ users }: FindUsers) => {
             <th>Reset token</th>
             <th>Reset token expires at</th>
             <th>Web authn challenge</th>
-            <th>Role</th>
+            <th>Roles</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -72,7 +72,7 @@ const UsersList = ({ users }: FindUsers) => {
               <td>{truncate(user.resetToken)}</td>
               <td>{timeTag(user.resetTokenExpiresAt)}</td>
               <td>{truncate(user.webAuthnChallenge)}</td>
-              <td>{formatEnum(user.role)}</td>
+              <td>{truncate(user.roles)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

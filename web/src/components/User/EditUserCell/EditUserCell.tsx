@@ -26,7 +26,7 @@ export const QUERY: TypedDocumentNode<EditUserById> = gql`
       resetToken
       resetTokenExpiresAt
       webAuthnChallenge
-      role
+      roles
     }
   }
 `
@@ -45,7 +45,7 @@ const UPDATE_USER_MUTATION: TypedDocumentNode<
       resetToken
       resetTokenExpiresAt
       webAuthnChallenge
-      role
+      roles
     }
   }
 `

@@ -9,7 +9,7 @@ import { useMutation } from '@redwoodjs/web'
 import type { TypedDocumentNode } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import { formatEnum, timeTag } from 'src/lib/formatters'
+import { timeTag } from 'src/lib/formatters'
 
 const DELETE_USER_MUTATION: TypedDocumentNode<
   DeleteUserMutation,
@@ -86,8 +86,8 @@ const User = ({ user }: Props) => {
               <td>{user.webAuthnChallenge}</td>
             </tr>
             <tr>
-              <th>Role</th>
-              <td>{formatEnum(user.role)}</td>
+              <th>Roles</th>
+              <td>{user.roles}</td>
             </tr>
           </tbody>
         </table>

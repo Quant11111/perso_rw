@@ -8,11 +8,6 @@ generator client {
   binaryTargets = "native"
 }
 
-enum Role {
-  ADMIN
-  USER
-}
-
 enum MessageType {
   SENT
   RECEIVED
@@ -30,8 +25,17 @@ model User {
   resetToken          String?
   resetTokenExpiresAt DateTime?
   webAuthnChallenge   String?
-  role                Role
+  roles               String[]
   messages            Message[]
+}
+
+model Techno {
+  id          String   @id @default(uuid()) @db.Uuid
+  name        String   @unique
+  description String
+  image       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model Message {
@@ -42,6 +46,7 @@ model Message {
   user      User        @relation(fields: [userId], references: [id])
   userId    String      @db.Uuid
   type      MessageType @default(RECEIVED)
+  deletedAt DateTime?
 }
 
 model Product {

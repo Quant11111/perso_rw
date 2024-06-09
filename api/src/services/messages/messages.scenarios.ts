@@ -5,28 +5,28 @@ export const standard = defineScenario<Prisma.MessageCreateArgs>({
   message: {
     one: {
       data: {
-        updatedAt: '2024-06-08T00:00:00.151Z',
+        updatedAt: '2024-06-09T19:55:53.804Z',
         content: 'String',
         user: {
           create: {
-            name: 'String5776624',
+            name: 'String9351808',
             hashedPassword: 'String',
             salt: 'String',
-            role: 'ADMIN',
+            roles: 'String',
           },
         },
       },
     },
     two: {
       data: {
-        updatedAt: '2024-06-08T00:00:00.151Z',
+        updatedAt: '2024-06-09T19:55:53.804Z',
         content: 'String',
         user: {
           create: {
-            name: 'String8197291',
+            name: 'String2800816',
             hashedPassword: 'String',
             salt: 'String',
-            role: 'ADMIN',
+            roles: 'String',
           },
         },
       },

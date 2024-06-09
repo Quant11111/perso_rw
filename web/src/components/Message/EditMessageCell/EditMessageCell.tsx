@@ -24,6 +24,7 @@ export const QUERY: TypedDocumentNode<EditMessageById> = gql`
       content
       userId
       type
+      deletedAt
     }
   }
 `
@@ -40,6 +41,7 @@ const UPDATE_MESSAGE_MUTATION: TypedDocumentNode<
       content
       userId
       type
+      deletedAt
     }
   }
 `

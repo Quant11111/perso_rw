@@ -22,7 +22,7 @@ export const QUERY: TypedDocumentNode<
       resetToken
       resetTokenExpiresAt
       webAuthnChallenge
-      role
+      roles
     }
   }
 `

@@ -3,6 +3,7 @@ export const themeSaaSmile = {
     darkWhite: '#e0e0e0',
     white: '#f5f5f5',
     blueAppbar: '#1976D2',
+    black: '#000000',
   },
   shadows: {
     small: '0px 4px 4px rgba(0, 0, 0, 0.25)',

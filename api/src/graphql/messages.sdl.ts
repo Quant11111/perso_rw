@@ -7,6 +7,7 @@ export const schema = gql`
     user: User!
     userId: String!
     type: MessageType!
+    deletedAt: DateTime
   }
 
   enum MessageType {
@@ -23,12 +24,14 @@ export const schema = gql`
     content: String!
     userId: String!
     type: MessageType!
+    deletedAt: DateTime
   }
 
   input UpdateMessageInput {
     content: String
     userId: String
     type: MessageType
+    deletedAt: DateTime
   }
 
   type Mutation {

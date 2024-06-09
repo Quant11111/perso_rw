@@ -17,6 +17,12 @@ import ApplicationLayout from './layouts/ApplicationLayout/ApplicationLayout'
 const Routes = () => {
   return (
     <Router useAuth={useAuth}>
+      <Set wrap={ScaffoldLayout} title="Technos" titleTo="technos" buttonLabel="New Techno" buttonTo="newTechno">
+        <Route path="/technos/new" page={TechnoNewTechnoPage} name="newTechno" />
+        <Route path="/technos/{id}/edit" page={TechnoEditTechnoPage} name="editTechno" />
+        <Route path="/technos/{id}" page={TechnoTechnoPage} name="techno" />
+        <Route path="/technos" page={TechnoTechnosPage} name="technos" />
+      </Set>
       <Set wrap={ScaffoldLayout} title="Products" titleTo="products" buttonLabel="New Product" buttonTo="newProduct">
         <Route path="/products/new" page={ProductNewProductPage} name="newProduct" />
         <Route path="/products/{id}/edit" page={ProductEditProductPage} name="editProduct" />
@@ -38,15 +44,16 @@ const Routes = () => {
       <Set wrap={ApplicationLayout}>
         <Route path="/login" page={LoginPage} name="login" />
         <Route path="/" page={HomePage} name="home" />
-        <Route path="/techStack" page={TechStackPage} name="techStack" />
+        <Route path="/tech-stack" page={TechStackPage} name="techStack" />
         <Route path="/signup" page={SignupPage} name="signup" />
         <Route path="/contact" page={ContactPage} name="contact" />
+        <Route path="/about-us" page={AboutUsPage} name="aboutUs" />
 
         <PrivateSet unauthenticated="login">
           <Route path="/profile" page={ProfilePage} name="profile" />
           <Route path="/chat" page={ChatPage} name="chat" />
         </PrivateSet>
-        <PrivateSet unauthenticated="forbidden" roles="ADMIN">
+        <PrivateSet unauthenticated="forbidden" roles={'ADMIN'}>
           <Route path="/admin" page={AdminPage} name="admin" />
         </PrivateSet>
         <Route notfound page={NotFoundPage} />

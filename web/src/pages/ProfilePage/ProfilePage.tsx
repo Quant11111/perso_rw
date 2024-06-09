@@ -6,8 +6,10 @@ import { Metadata } from '@redwoodjs/web'
 import { useAuth } from 'src/auth'
 import MessagesCell from 'src/components/Message/MessagesCell'
 
+import { BlackButtonHomePage } from '../HomePage/homeComponents/BlackButtonHomePage'
+
 const ProfilePage = () => {
-  const { currentUser } = useAuth()
+  const { currentUser, logOut } = useAuth()
   return (
     <Box position="relative" width={'97vw'}>
       <Metadata title="Profile" description="Profile page" />
@@ -18,6 +20,7 @@ const ProfilePage = () => {
         My default route is named <code>profile</code>, link to me with `
         <Link to={routes.profile()}>Profile</Link>`
       </p>
+      <BlackButtonHomePage label="Logout" onClick={() => logOut()} />
     </Box>
   )
 }
