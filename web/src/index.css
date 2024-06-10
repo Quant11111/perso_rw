@@ -73,13 +73,14 @@ body {
 /* HomePage animation */
 
 .circles{
-  position: absolute;
+  position: fixed;
   z-index: 0;
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100% - 16px);
+  height: calc(100%);
   overflow: hidden;
+  pointer-events: none;
 }
 
 .circles li{
@@ -91,6 +92,7 @@ body {
   background: rgba(255, 255, 255, 0.2);
   animation: animate 25s linear infinite;
   bottom: -150px;
+  pointer-events: none;
 
 }
 

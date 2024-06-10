@@ -9,8 +9,8 @@ import Routes from 'src/Routes'
 
 import './scaffold.css'
 import { AuthProvider, useAuth } from './auth'
-
 import './index.css'
+import HomeAnimation from './pages/HomePage/homeComponents/HomeAnimation'
 
 const App = () => (
   <FatalErrorBoundary page={FatalErrorPage}>
@@ -19,6 +19,7 @@ const App = () => (
         <AuthProvider>
           <RedwoodApolloProvider useAuth={useAuth}>
             <CssBaseline />
+            <HomeAnimation />
             <Routes />
           </RedwoodApolloProvider>
         </AuthProvider>

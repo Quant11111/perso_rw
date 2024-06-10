@@ -33,7 +33,6 @@ const HomePage = () => {
       sx={{
         background: themeSaaSmile.gradiant.homePage,
       }}
-      position={'relative'}
     >
       <Metadata title="Home" description="Home page" />
       <HomeAnimation />
@@ -92,6 +91,14 @@ const HomePage = () => {
           revert={true}
           img="https://i.pinimg.com/originals/cd/59/d6/cd59d626dc86397fe45080e6e9c7027d.gif"
           title="We might already have what you need"
+          description="Checkout out product page to see if we already have the tool you are looking for. When we create a tool for a client, we always transform
+          it into a SaaS. This way we can offer it to other clients and make it evolve with the feedback we gather. "
+        />
+        <HomeCard
+          buttonLabel="Define how you want us to help you out"
+          onClick={() => navigate(routes.products())}
+          img="https://i.pinimg.com/originals/cd/59/d6/cd59d626dc86397fe45080e6e9c7027d.gif"
+          title="Define how you want us to help you out"
           description="Checkout out product page to see if we already have the tool you are looking for. When we create a tool for a client, we always transform
           it into a SaaS. This way we can offer it to other clients and make it evolve with the feedback we gather. "
         />
