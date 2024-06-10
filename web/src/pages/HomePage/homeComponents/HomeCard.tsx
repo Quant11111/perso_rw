@@ -31,7 +31,7 @@ export const HomeCard = ({
     <Stack
       ml={revert ? -1 : 10}
       mr={revert ? 5 : -1}
-      borderRadius={2}
+      borderRadius={themeSaaSmile.borderRadius}
       direction={'row'}
       alignItems={'center'}
       textAlign={'center'}
@@ -41,7 +41,7 @@ export const HomeCard = ({
         overflow: 'hidden',
         opacity: 0.5,
         transition: 'ease-in-out 0.7s',
-        boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.25)',
+        boxShadow: themeSaaSmile.shadows.strong,
         ':hover': {
           backgroundColor: themeSaaSmile.palette.white,
           opacity: 1,
@@ -75,7 +75,12 @@ export const HomeCard = ({
 
 const HomeCardContent = ({ label, onClick, title, description }) => {
   return (
-    <Stack my={5} p={3} alignItems={'center'} borderRadius={2}>
+    <Stack
+      my={5}
+      p={3}
+      alignItems={'center'}
+      borderRadius={themeSaaSmile.borderRadius}
+    >
       <WhiteHighlightedTypo color={'black'} variant={'h4'}>
         {title}
       </WhiteHighlightedTypo>

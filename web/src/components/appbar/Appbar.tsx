@@ -17,7 +17,7 @@ const Appbar: React.FC = () => {
       mt={3}
       mx={3}
       px={1}
-      borderRadius={2}
+      borderRadius={themeSaaSmile.borderRadius}
       sx={{
         display: 'flex',
         justifyContent: 'space-around',
@@ -25,7 +25,7 @@ const Appbar: React.FC = () => {
         width: 'fill-available',
         height: '64px',
         background: themeSaaSmile.palette.white,
-        boxShadow: themeSaaSmile.shadows.small,
+        boxShadow: themeSaaSmile.shadows.strong,
       }}
     >
       {isAuthenticated && (

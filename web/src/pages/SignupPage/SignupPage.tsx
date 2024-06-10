@@ -17,6 +17,7 @@ import { Link, navigate, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
 import { useAuth } from 'src/auth'
+import { themeSaaSmile } from 'src/theme'
 
 const SignupPage = () => {
   const { isAuthenticated, signUp } = useAuth()
@@ -65,7 +66,7 @@ const SignupPage = () => {
   return (
     <Box
       className="authPage"
-      borderRadius={1}
+      borderRadius={themeSaaSmile.borderRadius}
       sx={{
         display: 'flex',
         height: '100%',
@@ -76,7 +77,7 @@ const SignupPage = () => {
       <Metadata title="Signup" />
       <main className="rw-main">
         <Box
-          borderRadius={2}
+          borderRadius={themeSaaSmile.borderRadius}
           sx={{
             boxShadow: '0 0 30px rgba(0, 0, 0, 0.3)',
           }}

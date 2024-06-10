@@ -1,4 +1,4 @@
-import { Stack } from '@mui/material'
+import { Stack, TextField } from '@mui/material'
 
 import { useAuth } from 'src/auth'
 import { themeSaaSmile } from 'src/theme'
@@ -45,16 +45,33 @@ const ProfilePage = () => {
       </Stack>
       <Stack
         mt={2}
-        p={2}
-        height={50}
+        height="auto"
         direction={'row'}
         justifyContent={'center'}
         alignItems={'center'}
         sx={{
-          background: themeSaaSmile.palette.darkWhite,
-          borderRadius: 2,
+          borderRadius: themeSaaSmile.borderRadius,
         }}
-      ></Stack>
+      >
+        <TextField
+          variant={'outlined'}
+          label={'Type your message'}
+          placeholder={'Type your message'}
+          color="info"
+          inputProps={{
+            color: themeSaaSmile.palette.darkWhite,
+            sx: {
+              color: themeSaaSmile.palette.darkWhite,
+            },
+          }}
+          sx={{
+            flexGrow: 1,
+            borderRadius: themeSaaSmile.borderRadius,
+            color: themeSaaSmile.palette.darkWhite,
+            border: `1px solid ${themeSaaSmile.palette.darkWhite}`,
+          }}
+        />
+      </Stack>
     </Stack>
   )
 }

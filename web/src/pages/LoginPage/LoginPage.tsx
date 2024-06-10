@@ -16,6 +16,7 @@ import { Metadata } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'
 
 import { useAuth } from 'src/auth'
+import { themeSaaSmile } from 'src/theme'
 
 const LoginPage = () => {
   const { isAuthenticated, logIn } = useAuth()
@@ -49,7 +50,7 @@ const LoginPage = () => {
   return (
     <Box
       className="authPage"
-      borderRadius={1}
+      borderRadius={themeSaaSmile.borderRadius}
       sx={{
         display: 'flex',
         height: '100%',
@@ -62,7 +63,7 @@ const LoginPage = () => {
       <main className="rw-main">
         <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
         <Box
-          borderRadius={2}
+          borderRadius={themeSaaSmile.borderRadius}
           sx={{
             boxShadow: '0 0 30px rgba(0, 0, 0, 0.3)',
           }}

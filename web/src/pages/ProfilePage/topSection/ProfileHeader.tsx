@@ -15,7 +15,7 @@ interface ProfileHeaderProps {
 
 export const ProfileHeader = ({ img, name, roles, logOut }: ProfileHeaderProps) => {
   return (
-    <Box p={1} borderRadius={3} display={'flex'} justifyContent={'space-between'} sx={{
+    <Box p={1} borderRadius={themeSaaSmile.borderRadius} display={'flex'} justifyContent={'space-between'} sx={{
       background: 'linear-gradient(180deg, #1A2980 0%, #26D0CE 100%)',
       border: `2px solid ${themeSaaSmile.palette.darkWhite}`,
     }}>
@@ -37,7 +37,7 @@ export const ProfileHeader = ({ img, name, roles, logOut }: ProfileHeaderProps) 
           borderRadius: 4,
           border: `1px solid ${themeSaaSmile.palette.darkWhite}`,
           }}>
-        Logout
+        Edit
         </Button>
         <Button onClick={logOut} variant='contained' sx={{
           backgroundColor: themeSaaSmile.palette.blueAppbar,

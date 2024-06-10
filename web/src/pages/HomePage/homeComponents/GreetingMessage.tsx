@@ -28,7 +28,7 @@ export const GreetingMessage = () => {
           </Box>
           <Box
             px={2}
-            borderRadius={10}
+            borderRadius={themeSaaSmile.borderRadius}
             sx={{
               backgroundColor: themeSaaSmile.palette.blueAppbar,
               border: '1px solid white',

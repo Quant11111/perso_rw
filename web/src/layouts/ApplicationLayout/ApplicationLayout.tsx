@@ -1,6 +1,7 @@
 import { Box, Stack } from '@mui/material'
 
 import Appbar from 'src/components/appbar/Appbar'
+import { themeSaaSmile } from 'src/theme'
 
 type ApplicationLayoutProps = {
   children?: React.ReactNode
@@ -28,7 +29,7 @@ const ApplicationLayout = ({ children }: ApplicationLayoutProps) => {
           width: 'calc(100% - 48px)',
           height: '100%',
           borderRadius: 2,
-          boxShadow: 3,
+          boxShadow: themeSaaSmile.shadows.strong,
           overflow: 'scroll',
           scrollbarWidth: 'none',
         }}

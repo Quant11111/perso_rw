@@ -6,6 +6,7 @@ export const themeSaaSmile = {
     black: '#000000',
   },
   shadows: {
+    strong: '0px 4px 20px rgba(0, 0, 0, 0.5)',
     small: '0px 4px 4px rgba(0, 0, 0, 0.25)',
     medium: '0px 20px 20px rgba(0, 0, 0, 0.25)',
     large: '0px 30px 30px rgba(0, 0, 0, 0.25)',
@@ -14,5 +15,5 @@ export const themeSaaSmile = {
     homePage:
       'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 100%)',
   },
-  borderRadius: 3,
+  borderRadius: 2,
 }
