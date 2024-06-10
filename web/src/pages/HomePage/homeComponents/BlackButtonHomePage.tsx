@@ -14,7 +14,7 @@ export const BlackButtonHomePage = ({
   variant = 'h6',
   onClick,
   label,
-}: BlackButtonHomePageProps) => {
+}: BlackButtonHomePageProps): React.ReactNode => {
   return (
     <Box
       onClick={onClick}

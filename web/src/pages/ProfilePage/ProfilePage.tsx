@@ -1,27 +1,61 @@
-import { Box } from '@mui/material'
-
-import { Link, routes } from '@redwoodjs/router'
-import { Metadata } from '@redwoodjs/web'
+import { Stack } from '@mui/material'
 
 import { useAuth } from 'src/auth'
-import MessagesCell from 'src/components/Message/MessagesCell'
+import { themeSaaSmile } from 'src/theme'
 
-import { BlackButtonHomePage } from '../HomePage/homeComponents/BlackButtonHomePage'
+import { ProfileHeader } from './topSection/ProfileHeader'
 
 const ProfilePage = () => {
   const { currentUser, logOut } = useAuth()
+
   return (
-    <Box position="relative" width={'97vw'}>
-      <Metadata title="Profile" description="Profile page" />
-      <h1>ProfilePage</h1>
-      <pre>{JSON.stringify(currentUser, null, 2)}</pre>
-      <MessagesCell />
-      <p>
-        My default route is named <code>profile</code>, link to me with `
-        <Link to={routes.profile()}>Profile</Link>`
-      </p>
-      <BlackButtonHomePage label="Logout" onClick={() => logOut()} />
-    </Box>
+    <Stack
+      p={2}
+      position={'relative'}
+      width={'100%'}
+      height={'100%'}
+      sx={{
+        background: themeSaaSmile.gradiant.homePage,
+        boxShadow: themeSaaSmile.shadows.large,
+      }}
+    >
+      <ProfileHeader
+        img={
+          currentUser?.avatar ||
+          'https://cdn.dribbble.com/users/369497/screenshots/11457867/media/4c2267939a9bfb728c5f55dfec37aa4e.jpg?resize=400x0'
+        }
+        name={currentUser?.name}
+        roles={currentUser?.roles}
+        logOut={() => logOut()}
+      />
+      <Stack
+        mt={2}
+        p={2}
+        gap={2}
+        flexGrow={1}
+        direction={'column'}
+        alignItems={'center'}
+        justifyContent={'center'}
+        sx={{
+          background: themeSaaSmile.palette.darkWhite,
+          borderRadius: themeSaaSmile.borderRadius,
+        }}
+      >
+        {/*messages to display*/}
+      </Stack>
+      <Stack
+        mt={2}
+        p={2}
+        height={50}
+        direction={'row'}
+        justifyContent={'center'}
+        alignItems={'center'}
+        sx={{
+          background: themeSaaSmile.palette.darkWhite,
+          borderRadius: 2,
+        }}
+      ></Stack>
+    </Stack>
   )
 }
 

@@ -14,4 +14,5 @@ export const themeSaaSmile = {
     homePage:
       'linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 100%)',
   },
+  borderRadius: 3,
 }
